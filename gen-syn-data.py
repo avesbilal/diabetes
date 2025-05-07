@@ -51,12 +51,5 @@ df = pd.DataFrame({
     'diabetes': diabetes
 })
 
-# Add missing values (3-9%) in age, bmi, and blood_glucose_level
-for col in ['age', 'bmi', 'blood_glucose_level']:
-    missing_pct = np.random.uniform(0.03, 0.09)
-    n_missing = int(n * missing_pct)
-    missing_indices = np.random.choice(df.index, n_missing, replace=False)
-    df.loc[missing_indices, col] = np.nan
-
 # Export CSV
 df.to_csv("diabetes.csv", index=False)
